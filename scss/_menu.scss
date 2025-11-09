@@ -1,0 +1,208 @@
+.menu {
+    box-sizing: border-box;
+    z-index: 5;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    background-size: 25rem;
+    font-size: 2em;
+    transition: 0.2s;
+    height: 10rem;
+
+    &--transparent {
+        border: 1px solid #fff;
+        height: 7rem;
+        background-image: url('../img/lines-menu.png');
+        background-size: 60%;
+    }
+
+    &--solid {
+        height: 40px;
+    }
+
+
+    @include mq(medium) {
+        display: block;
+    }
+
+
+    &__container{
+
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        & li{
+            list-style: none;
+        }
+
+        @include mq(medium) {
+            width: 100%;
+            flex-direction: row;
+            margin-right: 10rem;
+            justify-content: space-around;
+        }
+        @include mq(large) {
+            justify-content: center;
+        }
+    }
+
+    &__bcg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        left: -100vw;
+        transform: translate(-50%, 0);
+        padding: 0.5rem 0;
+        transition: 0.2s;
+
+        @include mq(medium) {
+            height: 5rem;
+            left: 0;
+            transform: translate(0, 0);
+            transition: 0;
+        }
+
+        &--open {
+            left: 50%;
+            @include mq(medium) {
+                left: 0;
+            }
+        }
+
+        &--transparent {
+            background: $main-color;
+            @include mq(medium) {
+                background: transparent;
+            }
+
+        }
+        &--color {
+            background: $main-color;
+            box-shadow: 0 8px 8px 5px rgba(0,0,0,.4);
+            opacity: 0.95;
+        }
+
+        &--solid {
+            height: 40px;
+        }
+    }
+
+    &__nav-btn {
+        box-sizing: border-box;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        padding: 0 5%;
+        padding-right: 5%;
+        letter-spacing: 0.3rem;
+        font-size: 3.5rem;
+
+        @include mq(medium) {
+            font-size: 2rem;
+            margin-left: 10rem;
+        }
+        @include mq(large) {
+            margin-left: 15rem;
+        }
+        @include mq(xlarge) {
+            margin-left: 25rem;
+        }
+
+        &:hover {
+            background-color: #fff;
+            color: $main-color;
+            border-radius: 0 0 5rem 1rem;
+        }
+    }
+}
+
+.menu-home {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 3.2rem;
+    transform: translate(0, 10%);
+
+    &:hover {
+        background-color: #fff;
+        color: $main-color;
+        border-radius: 0 0 5rem 1rem;
+    }
+}
+
+.burger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    transform: translate(-9px, 23px);
+    height: 3px;
+    background: $main-color;
+    transition: all .2s ease-in-out;
+    z-index: 100;
+    opacity: 85%;
+
+
+    &--active{
+
+        & .burger {
+            height: 0px;
+        }
+
+        & .burger::before {
+            transform-origin: center;
+            transform: rotate(-45deg);
+            top:  0;
+
+            }
+            & .burger::after {
+                transform-origin: center;
+                transform: rotate(45deg);
+                top:  0;
+            }
+
+    }
+
+    &-menu {
+        position: fixed;
+        right: 5%;
+        top: 5%;
+        display: block;
+        height: 6rem;
+        width: 6rem;
+        border: solid 2px #fff;
+        border-radius: 50%;
+        background-color: #fff;
+        z-index: 99;
+
+        @include mq(medium) {
+            display: none;
+        }
+
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        background: $main-color;
+        content: '';
+        width: 30px;
+        height: 3px;
+        transition: all .2s ease-in-out;
+    }
+
+    &:before {
+        top: -12px;
+    }
+
+    &:after {
+        top: 12px;
+    }
+
+    @include mq(medium) {
+        display: none;
+    }
+}

@@ -1,0 +1,31 @@
+.section__wrap{
+    margin: 5rem auto 0 auto;
+    width: 80vw;
+
+    @include mq(medium) {
+        margin: 10rem auto 0 auto;
+        width: 80vw;
+    }
+
+    @include mq(xlarge) {
+        max-width: 1300px;
+    }
+}
+.about {
+    order: 1;
+}
+.projects {
+    order: 3;
+}
+
+.contact {
+    order: 4;
+}
+
+.enquiry {
+    order: 5;
+}
+
+.footer {
+    order: 6;
+}
