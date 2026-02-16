@@ -2,56 +2,49 @@
 
 const headerFrame = document.querySelector('.header__frame')
 const headerTitle = document.querySelector('.header__title-big')
-const headerLogo = document.querySelector('.header__logo')
+const headerLogo = document.querySelector('.nav__logo')
 const headerTitleSmall = document.querySelector('.header__title-small')
 const headerButton = document.querySelector('.header__button')
 const headerImage = document.querySelector('.header__img')
 const headerArrow = document.querySelector('.scroll')
 const menuBtn = document.querySelectorAll('.menu__nav-btn') 
 const headerSocial = document.querySelector('.header__social-li') 
+const hamburger = document.querySelector('.menu__btn');
+const menuBcg = document.querySelector('.menu__bcg');
+const menuIcon = document.querySelector('.menu__btn i');
+
+// Open/Close logic
+if(hamburger) {
+    hamburger.addEventListener('click', () => {
+        menuBcg.classList.toggle('menu__bcg--open');
+        if(headerLogo) headerLogo.classList.toggle('nav__logo--hidden');
+
+        // Toggle icon between bars and times (X)
+        if(menuBcg.classList.contains('menu__bcg--open')) {
+             menuIcon.classList.remove('fa-bars');
+             menuIcon.classList.add('fa-times');
+        } else {
+             menuIcon.classList.remove('fa-times');
+             menuIcon.classList.add('fa-bars');
+        }
+    });
+}
+
+// Close menu when a link is clicked
+menuBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        menuBcg.classList.remove('menu__bcg--open');
+        if(headerLogo) headerLogo.classList.remove('nav__logo--hidden');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    });
+}); 
 
 //header animations
 
 const headerTl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
 const animSpd = 0.65;
-
-headerTl.fromTo(headerFrame, animSpd, { opacity: 0 }, { opacity: 1, delay: 1.2 })
-    .fromTo(headerTitle, animSpd, { opacity: 0, x: '+=100' }, { opacity: 1, x: 0 })
-    .fromTo(headerImage, 0.3, { opacity: 0, }, { opacity: 0.8, ease: "power1.out" })
-    .fromTo(headerTitleSmall, animSpd, { opacity: 0, x: '-=100', },
-        { x: 0, opacity: 1, x: 0, ease: "slow(0.7, 0.7, false)" })
-    .fromTo(headerLogo, animSpd, { opacity: 0, x: '+=50' }, { opacity: 1, x: 0 })
-    .fromTo(headerButton, animSpd, { opacity: 0, }, { opacity: 1, ease: "bounce.out" })
-
-
-gsap.from(headerArrow, 2, { delay: 2, opacity: 0, }) 
-gsap.from(headerArrow, 1.5, { delay: 0, y: '-20px', repeat: -1, yoyo: true, ease: "slow(0.7, 0.7, false)", });
-
-gsap.fromTo(menuBtn, 2, {
-    opacity: 0,
-    y: '-=100',
-    ease: "power3.out",
-}, {
-    opacity: 1,
-    y: 0,
-    delay: 3,
-
-});
-
-gsap.fromTo(headerSocial, 2, { 
-    opacity: 0,
-    x: '-=100',
-    ease: "power3.out",
-}, {
-    opacity: 1,
-    x: 0,
-    delay: 2.7,
-    rotation: 360,
-    transformOrigin: "center",
-});
-
-
 
 //Top Button
 const mybutton = document.getElementById("myBtn");
@@ -104,10 +97,10 @@ sections.forEach(section => {
         })
 })
 
-const featuresCollection = features.children;
+const featuresCollection = features ? features.children : [];
 var mediaQuery = window.matchMedia('(min-width: 768px)');
 
-if (mediaQuery) {
+if (mediaQuery && features) {
     for (let feature of featuresCollection) {
         gsap.fromTo(feature, { x: '+=100', opacity: 0 },
             {
@@ -155,7 +148,7 @@ document.addEventListener('mouseup', () => {
     }
 });
 
-slider.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
     
@@ -167,38 +160,32 @@ slider.addEventListener('mousemove', (e) => {
 
 
 
+/* Language Switcher */
 
+const langButtons = document.querySelectorAll('.lang');
 
-// project images animation
-/*
-const projectsImages = document.querySelector('.grid')
+langButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const span = btn.querySelector('span');
+        let lang = 'en';
+        if (span.classList.contains('fi-fr')) lang = 'fr';
+        if (span.classList.contains('fi-nl')) lang = 'nl';
+        if (span.classList.contains('fi-gb')) lang = 'en';
+        
+        updateLanguage(lang);
+    });
+});
 
-const images = projectsImages.children;
+function updateLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+             el.innerHTML = translations[lang][key];
+        }
+    });
 
-const imgTl = gsap.timeline({
-    defaults: {
-        delay: 0.3, opacity: 0, duration: 0.15, y: 80,
-    },
-    scrollTrigger: {
-        trigger: projectsImages,
-        start: 'top 55%',
-        ease: "none",
-    }
-})
-    .from(images[0], {
-    }, "-=0.2")
-    .from(images[3], {
-    }, "-=0.3")
-    .from(images[4], {
-    }, "-=0.5")
-    .from(images[2], {
-    }, "-=0.2")
-    .from(images[1], {
-    }, "-=0.5")
-    .from(images[5], {
-    }, "-=0.3")
-    .from(images[6], {
-    }, "-=0.2")
-    .from(images[7], {
-    }, "-=0.4")
-    */
+    // to save language preference (optional)
+    // localStorage.setItem('preferredLanguage', lang);
+}

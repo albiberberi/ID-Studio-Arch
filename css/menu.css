@@ -1,0 +1,22 @@
+
+/* Hamburger Menu Button */
+.menu__btn {
+    position: fixed; 
+    top: 2rem;
+    right: 2rem;
+    z-index: 10001; 
+    font-size: 3rem;
+    color: #1E367B;
+    cursor: pointer;
+    background: rgba(236, 236, 231, 0.5); /* Semi-transparent background to ensure visibility */
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .menu__btn {
+        display: none;
+    }
+}
