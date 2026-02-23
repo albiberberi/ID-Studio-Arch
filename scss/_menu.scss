@@ -12,8 +12,6 @@
     &--transparent {
         border: 1px solid #fff;
         height: 7rem;
-        background-image: url('../img/lines-menu.png');
-        background-size: 60%;
     }
 
     &--solid {
@@ -40,11 +38,13 @@
         @include mq(medium) {
             width: 100%;
             flex-direction: row;
-            margin-right: 10rem;
-            justify-content: space-around;
+            margin-right: 2rem;
+            justify-content: flex-start;
+            padding-left: 18rem;
         }
         @include mq(large) {
-            justify-content: center;
+            justify-content: flex-start;
+            margin-right: 5rem;
         }
     }
 
@@ -103,13 +103,13 @@
 
         @include mq(medium) {
             font-size: 2rem;
-            margin-left: 10rem;
+            margin-left: 2rem;
         }
         @include mq(large) {
-            margin-left: 15rem;
+            margin-left: 2.5rem;
         }
         @include mq(xlarge) {
-            margin-left: 25rem;
+            margin-left: 3rem;
         }
 
         &:hover {

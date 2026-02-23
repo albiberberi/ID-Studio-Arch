@@ -6,19 +6,32 @@
             text-transform: uppercase;
             position: relative;
             margin: 2em auto 1.3em auto;
-            width: 20rem;
+            width: 100%;
+            text-align: center;
+            color: #fff;
 
             &::before {
                 content: "";
                 position: absolute;
-                top: 40%;
-                left: -1em;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 background-color: $main-color-shaded;
-                width: 6em;
+                width: 100vw;
                 height: 30px;
                 opacity: .8;
                 z-index: -1;
             }
+        }
+
+        &-text {
+            font-family: Tahoma, sans-serif;
+            font-size: 1.6rem;
+            color: #333;
+            max-width: 90rem;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-align: justify;
         }
     }
 }

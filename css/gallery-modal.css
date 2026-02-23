@@ -1,0 +1,165 @@
+/* Gallery Modal - Desktop Sidebar Layout */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 100000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+}
+
+.gallery-modal__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .gallery-modal__content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+}
+
+/* Close Button */
+.gallery-modal__close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+  z-index: 100010;
+  transition: transform 0.3s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 54, 123, 0.5);
+  border-radius: 50%;
+}
+
+.gallery-modal__close:hover {
+  transform: rotate(90deg);
+  background: #1e367b;
+}
+
+/* Slider Section */
+.gallery-modal__slider {
+  position: relative;
+  flex: 1;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+@media (min-width: 1024px) {
+  .gallery-modal__slider {
+    height: 100vh;
+  }
+}
+
+.gallery-modal__images-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.gallery-modal__img.active {
+  display: block;
+}
+
+/* Nav Buttons */
+.gallery-modal__prev,
+.gallery-modal__next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 25px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100005;
+  transition: all 0.3s ease;
+}
+
+.gallery-modal__prev { left: 0; border-radius: 0 5px 5px 0; }
+.gallery-modal__next { right: 0; border-radius: 5px 0 0 5px; }
+
+.gallery-modal__prev:hover,
+.gallery-modal__next:hover {
+  background: #1e367b;
+}
+
+/* Info Sidebar */
+.gallery-modal__info {
+  background: #ecece7;
+  color: white;
+  padding: 40px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .gallery-modal__info {
+    width: 450px;
+    height: 100vh;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+  }
+}
+
+.gallery-modal__info-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gallery-modal__title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #1e367b;
+  line-height: 1.1;
+}
+
+.gallery-modal__divider {
+  width: 50px;
+  height: 4px;
+  background: #1e367b;
+  margin-bottom: 30px;
+}
+
+.gallery-modal__description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: #1e367b;
+  font-weight: 300;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

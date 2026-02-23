@@ -86,36 +86,6 @@ body {
             width: 1300px;
         }
 
-        &::after {
-            position: absolute;
-            top: -9rem;
-            left: -20rem;
-            width: 35rem;
-            height: 65rem;
-            background-image: url('../img/white-diagonal.png');
-            background-size: 55rem;
-            z-index: -4;
-
-            @include mq(medium) {
-                content: "";
-            }
-        }
-
-        &::before {
-            position: absolute;
-            bottom: -9rem;
-            right: -15rem;
-            width: 35rem;
-            height: 65rem;
-            background-image: url('../img/white-diagonal.png');
-            background-size: 55rem;
-            z-index: -4;
-
-            @include mq(medium) {
-                content: "";
-            }
-        }
-
         &-bcg {
             position: absolute;
             width: 100%;

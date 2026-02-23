@@ -13,13 +13,10 @@
 }
 
 html {
-    background: $main-color;
+    background-color: #ecece7;
     color: #fff;
-    background-blend-mode: multiply, normal;
-    background-image: url("../img/paper_bcg_60.png"), url('../svg/graph-paper25.svg');
-    background-size: 230vh, 100px;
-    width: 100vw;
-    max-width: 100%
+    width: 100%;
+    max-width: 100%;
 }
 
 body{
@@ -36,4 +33,6 @@ body{
 @import 'about';
 @import 'menu';
 @import 'projects';
+@import 'policies';
+@import 'gallery';
 @import 'footer';
