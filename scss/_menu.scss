@@ -40,7 +40,7 @@
             flex-direction: row;
             margin-right: 2rem;
             justify-content: flex-start;
-            padding-left: 18rem;
+            padding-left: 24rem;
         }
         @include mq(large) {
             justify-content: flex-start;
@@ -74,14 +74,14 @@
         }
 
         &--transparent {
-            background: $main-color;
+            background: #fff;
             @include mq(medium) {
                 background: transparent;
             }
 
         }
         &--color {
-            background: $main-color;
+            background: #fff;
             box-shadow: 0 8px 8px 5px rgba(0,0,0,.4);
             opacity: 0.95;
         }
@@ -93,7 +93,7 @@
 
     &__nav-btn {
         box-sizing: border-box;
-        color: #fff;
+        color: $main-color;
         line-height: 40px;
         text-decoration: none;
         padding: 0 5%;

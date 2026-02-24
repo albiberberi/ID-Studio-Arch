@@ -24,26 +24,26 @@
     }
 
     &__content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: center;
+        gap: 6rem;
         align-items: center;
         margin-bottom: 5rem;
     }
 
     &__link {
         font-family: Tahoma, sans-serif;
-        font-size: 1.8rem;
+        font-size: 2.7rem;
         color: #1e367b;
         text-decoration: none;
         transition: all 0.3s ease;
-        padding: 1rem 2rem;
         border: 1px solid transparent;
+        justify-self: center;
+        width: fit-content;
 
         &:hover {
             color: #000;
-            border-bottom: 1px solid #1e367b;
-            transform: translateY(-2px);
         }
     }
 }
@@ -62,7 +62,7 @@
     backdrop-filter: blur(5px);
 
     &__content {
-        background-color: #ecece7;
+        background-color: #ffffff;
         margin: 5% auto;
         padding: 4rem;
         border: 1px solid #1e367b;
