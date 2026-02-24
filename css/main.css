@@ -209,28 +209,32 @@ a:hover {
   order: 1;
 }
 
-.policies {
-  -webkit-box-ordinal-group: 5;
-  -ms-flex-order: 4;
+.team-container {
   order: 4;
 }
 
-.contact {
+.policies {
   -webkit-box-ordinal-group: 6;
   -ms-flex-order: 5;
   order: 5;
 }
 
-.enquiry {
+.contact {
   -webkit-box-ordinal-group: 7;
   -ms-flex-order: 6;
   order: 6;
 }
 
-.footer {
+.enquiry {
   -webkit-box-ordinal-group: 8;
   -ms-flex-order: 7;
   order: 7;
+}
+
+.footer {
+  -webkit-box-ordinal-group: 9;
+  -ms-flex-order: 8;
+  order: 8;
 }
 
 body {
