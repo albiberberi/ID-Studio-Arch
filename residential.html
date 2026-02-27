@@ -110,14 +110,14 @@
         </div>
     </main>
 
-    <!-- Gallery Modal (Moved outside main) -->
+    <!-- Gallery Modal -->
     <div id="galleryModal" class="gallery-modal">
         <span class="gallery-modal__close"><i class="fas fa-times"></i></span>
         <div class="gallery-modal__content">
             <div class="gallery-modal__slider">
                 <button class="gallery-modal__prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
                 <div id="galleryModalImages" class="gallery-modal__images-container">
-                    <!-- Images will be injected here -->
+                    <!-- Images injected by JS -->
                 </div>
                 <button class="gallery-modal__next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
             </div>
@@ -125,6 +125,20 @@
                 <div class="gallery-modal__info-wrap">
                     <h2 id="galleryModalTitle" class="gallery-modal__title"></h2>
                     <div class="gallery-modal__divider"></div>
+                    <div class="gallery-modal__meta">
+                        <div class="gallery-modal__meta-row">
+                            <span class="gallery-modal__meta-label">Address:</span>
+                            <span class="gallery-modal__meta-value" id="galleryModalAddress">—</span>
+                        </div>
+                        <div class="gallery-modal__meta-row">
+                            <span class="gallery-modal__meta-label">Type:</span>
+                            <span class="gallery-modal__meta-value" id="galleryModalType">—</span>
+                        </div>
+                        <div class="gallery-modal__meta-row">
+                            <span class="gallery-modal__meta-label">Squads involved:</span>
+                            <span class="gallery-modal__meta-value" id="galleryModalSquads">—</span>
+                        </div>
+                    </div>
                     <p id="galleryModalDescription" class="gallery-modal__description"></p>
                 </div>
             </div>

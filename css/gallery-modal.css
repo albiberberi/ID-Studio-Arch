@@ -1,4 +1,8 @@
-/* Gallery Modal - Desktop Sidebar Layout */
+/* =========================================================
+   Gallery Modal – Minimalist Light Layout
+   Image centered, metadata below, image navigation sides
+   ========================================================= */
+
 .gallery-modal {
   display: none;
   position: fixed;
@@ -7,159 +11,197 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.98);
-  backdrop-filter: blur(15px);
-  overflow: hidden;
-}
-
-.gallery-modal__content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+  background-color: #ffffff;
   overflow-y: auto;
 }
 
-@media (min-width: 1024px) {
-  .gallery-modal__content {
-    flex-direction: row;
-    overflow: hidden;
-  }
-}
-
-/* Close Button */
+/* ── Close Button ── */
 .gallery-modal__close {
   position: fixed;
-  top: 30px;
+  top: 24px;
   right: 30px;
-  color: #fff;
-  font-size: 35px;
+  color: #111;
+  font-size: 22px;
   cursor: pointer;
   z-index: 100010;
-  transition: transform 0.3s ease;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(30, 54, 123, 0.5);
   border-radius: 50%;
+  transition: background 0.25s ease, transform 0.25s ease;
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .gallery-modal__close:hover {
+  background: rgba(0, 0, 0, 0.12);
   transform: rotate(90deg);
-  background: #1e367b;
 }
 
-/* Slider Section */
+/* ── Main content wrapper ── */
+.gallery-modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 80px 24px 60px;
+  box-sizing: border-box;
+}
+
+/* ── Image slider wrapper ── */
 .gallery-modal__slider {
   position: relative;
-  flex: 1;
-  background: #000;
+  width: 100%;
+  max-width: 780px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
 }
 
-@media (min-width: 1024px) {
-  .gallery-modal__slider {
-    height: 100vh;
-  }
-}
-
+/* ── Images ── */
 .gallery-modal__images-container {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .gallery-modal__img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  max-width: 780px;
+  max-height: 520px;
+  object-fit: cover;
   display: none;
-  animation: fadeIn 0.4s ease-out;
+  animation: gmFadeIn 0.35s ease-out;
+  border-radius: 2px;
 }
 
 .gallery-modal__img.active {
   display: block;
 }
 
-/* Nav Buttons */
+/* ── Prev / Next arrows – subtle, on sides of image ── */
 .gallery-modal__prev,
 .gallery-modal__next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
   border: none;
-  padding: 25px 15px;
-  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
   cursor: pointer;
-  z-index: 100005;
-  transition: all 0.3s ease;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
-.gallery-modal__prev { left: 0; border-radius: 0 5px 5px 0; }
-.gallery-modal__next { right: 0; border-radius: 5px 0 0 5px; }
+.gallery-modal__prev { left: -20px; }
+.gallery-modal__next { right: -20px; }
 
 .gallery-modal__prev:hover,
 .gallery-modal__next:hover {
-  background: #1e367b;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
 }
 
-/* Info Sidebar */
+/* ── Info section below the image ── */
 .gallery-modal__info {
-  background: #ffffff;
-  color: white;
-  padding: 40px;
   width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .gallery-modal__info {
-    width: 450px;
-    height: 100vh;
-    overflow-y: auto;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
-  }
+  max-width: 780px;
+  margin-top: 32px;
+  text-align: left;
 }
 
 .gallery-modal__info-wrap {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
 }
 
+/* Project title */
 .gallery-modal__title {
-  font-size: 3rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #111;
   margin-bottom: 20px;
-  color: #1e367b;
-  line-height: 1.1;
+  text-align: center;
+  text-transform: none;
 }
 
+/* Thin divider */
 .gallery-modal__divider {
-  width: 50px;
-  height: 4px;
-  background: #1e367b;
-  margin-bottom: 30px;
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  margin-bottom: 24px;
 }
 
+/* Meta rows (Address, Type, Squads) */
+.gallery-modal__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.gallery-modal__meta-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 1.5rem;
+  color: #222;
+  line-height: 1.6;
+}
+
+.gallery-modal__meta-label {
+  font-weight: 600;
+  white-space: nowrap;
+  color: #111;
+}
+
+.gallery-modal__meta-value {
+  font-weight: 400;
+  color: #444;
+}
+
+/* Description – italic link-style like reference */
 .gallery-modal__description {
-  font-size: 1.8rem;
-  line-height: 1.8;
+  font-size: 1.4rem;
+  line-height: 1.7;
   color: #1e367b;
-  font-weight: 300;
+  font-style: italic;
+  font-weight: 400;
+  margin-top: 4px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* ── Fade animation ── */
+@keyframes gmFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ── Responsive tweaks ── */
+@media (max-width: 600px) {
+  .gallery-modal__content {
+    padding: 70px 16px 40px;
+  }
+
+  .gallery-modal__prev { left: 4px; }
+  .gallery-modal__next { right: 4px; }
+
+  .gallery-modal__title {
+    font-size: 1.8rem;
+  }
+
+  .gallery-modal__meta-row {
+    font-size: 1.3rem;
+  }
 }

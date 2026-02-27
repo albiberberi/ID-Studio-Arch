@@ -421,6 +421,53 @@ const galleryItems = document.querySelectorAll(".gallery__item");
 const galleryImagesContainer = document.getElementById("galleryModalImages");
 const galleryTitle = document.getElementById("galleryModalTitle");
 const galleryDescription = document.getElementById("galleryModalDescription");
+const galleryAddress = document.getElementById("galleryModalAddress");
+const galleryType = document.getElementById("galleryModalType");
+const gallerySquads = document.getElementById("galleryModalSquads");
+
+// Project metadata – placeholder data, replace with real values as needed
+const projectMeta = {
+    apartment_ixl: {
+        address: "Ixelles, Brussels",
+        type: "Residential – Renovation",
+        squads: "Architecture, Interior Design"
+    },
+    leeuwerik: {
+        address: "Brugge, Belgium",
+        type: "Residential – New Build",
+        squads: "Architecture, Sustainability"
+    },
+    wellness: {
+        address: "Uccle, Brussels",
+        type: "Residential – Extension",
+        squads: "Architecture, Landscape"
+    },
+    garden: {
+        address: "Waterloo, Belgium",
+        type: "Residential – Garden Pavilion",
+        squads: "Architecture, Furniture Design"
+    },
+    terrace: {
+        address: "Molenbeek, Brussels",
+        type: "Residential – Urban Housing",
+        squads: "Architecture, Urban Planning"
+    },
+    minimalist: {
+        address: "Ixelles, Brussels",
+        type: "Interior Design",
+        squads: "Interior Design, Furniture Design"
+    },
+    office_concept: {
+        address: "Etterbeek, Brussels",
+        type: "Commercial – Office",
+        squads: "Architecture, Interior Design"
+    },
+    courtyard: {
+        address: "Saint-Gilles, Brussels",
+        type: "Residential – Renovation",
+        squads: "Architecture, Landscape"
+    }
+};
 
 let currentProjectId = "";
 let currentProjectImages = [];
@@ -449,6 +496,8 @@ if (galleryModal && galleryItems.length > 0) {
         updateModalContent();
         galleryModal.style.display = "block";
         document.body.style.overflow = "hidden";
+        // Scroll modal to top on open
+        galleryModal.scrollTop = 0;
     }
 
     function updateModalContent() {
@@ -462,6 +511,18 @@ if (galleryModal && galleryItems.length > 0) {
             galleryTitle.setAttribute('data-i18n', titleKey);
             galleryDescription.setAttribute('data-i18n', descKey);
         }
+
+        // Populate metadata fields
+        const meta = projectMeta[currentProjectId];
+        if (meta) {
+            if (galleryAddress) galleryAddress.innerText = meta.address;
+            if (galleryType)    galleryType.innerText    = meta.type;
+            if (gallerySquads)  gallerySquads.innerText  = meta.squads;
+        } else {
+            if (galleryAddress) galleryAddress.innerText = "—";
+            if (galleryType)    galleryType.innerText    = "—";
+            if (gallerySquads)  gallerySquads.innerText  = "—";
+        }
     }
 
     function showImage(index) {
@@ -469,7 +530,8 @@ if (galleryModal && galleryItems.length > 0) {
         modalImages.forEach(img => img.classList.remove("active"));
         
         if (index >= modalImages.length) currentImageIndex = 0;
-        if (index < 0) currentImageIndex = modalImages.length - 1;
+        else if (index < 0) currentImageIndex = modalImages.length - 1;
+        else currentImageIndex = index;
         
         modalImages[currentImageIndex].classList.add("active");
     }
@@ -498,9 +560,9 @@ if (galleryModal && galleryItems.length > 0) {
 
     document.addEventListener("keydown", (e) => {
         if (galleryModal.style.display === "block") {
-            if (e.key === "ArrowLeft") showImage(currentImageIndex - 1);
+            if (e.key === "ArrowLeft")  showImage(currentImageIndex - 1);
             if (e.key === "ArrowRight") showImage(currentImageIndex + 1);
-            if (e.key === "Escape") galleryClose.click();
+            if (e.key === "Escape")     galleryClose.click();
         }
     });
 

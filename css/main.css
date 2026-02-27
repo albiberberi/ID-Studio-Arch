@@ -664,7 +664,6 @@ body {
   line-height: 1.8;
   text-align: justify;
   padding: 3rem;
-  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
@@ -674,7 +673,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1e367b;
+  background-color: rgb(214, 223, 246);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -880,7 +879,7 @@ body {
     top: 2rem;
     left: 2rem;
     z-index: 10002; /* Higher than menu background and button */
-    width: 14rem;
+    width: 18rem;
     height: auto;
     transition: transform 0.3s ease, opacity 0.3s ease;
     display: block;
@@ -904,7 +903,7 @@ body {
         top: 50%;
         left: 4rem;
         transform: translateY(-50%);
-        width: 12rem;
+        width: 16rem;
     }
 }
 
@@ -1164,7 +1163,6 @@ body {
   height: 400px;
   object-fit: cover;
   scroll-snap-align: start;
-  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -1415,7 +1413,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1e367b;
+  background-color: rgb(214, 223, 246);;
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1434,16 +1432,17 @@ body {
   position: relative;
   margin: 2em auto 1.3em auto;
   width: 100%;
-  color: #ecece7;
+  color: #1e367b;
   text-align: center;
 }
 
 .team__title::before {
-  content: ""; 
+  content: "";
   position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  background-color: #1e367b;
+  transform: translate(-50%, -50%);
+  background-color: rgb(214, 223, 246);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1538,7 +1537,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1e367b;
+  background-color: rgb(214, 223, 246);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1936,7 +1935,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #1e367b;
+  background-color: rgb(214, 223, 246);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -2074,7 +2073,7 @@ body {
   color: #1e367b;
   text-align: left;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 2.0rem;
   letter-spacing: 2px;
   padding-left: 0.5rem;
 }

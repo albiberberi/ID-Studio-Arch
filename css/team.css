@@ -24,7 +24,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #1e367b;
+    background-color: rgb(214, 223, 255);
     width: 100vw;
     height: 30px;
     opacity: 0.8;
@@ -42,8 +42,6 @@
 .team__card {
     flex: 0 1 280px; /* Base width for each card */
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -100,14 +98,14 @@
 }
 
 .team__name {
-    font-size: 1.6rem; /* Reduced font size */
+    font-size: 2.2rem; 
     color: #1e367b;
     margin-bottom: 0.3rem;
     font-weight: 600;
 }
 
 .team__role {
-    font-size: 1.2rem; /* Reduced font size */
+    font-size: 1.3rem; /* Reduced font size */
     color: #666;
     margin-bottom: 0.8rem;
     font-style: italic;
@@ -134,8 +132,8 @@
     background-color: transparent;
     color: #1e367b;
     border: none;
-    padding: 0.6rem 2rem; /* Reduced padding */
-    font-size: 1.3rem; /* Reduced font size */
+    padding: 0.6rem 2rem; 
+    font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.2s ease;
     border-radius: 5px;
