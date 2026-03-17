@@ -213,28 +213,32 @@ a:hover {
   order: 4;
 }
 
-.policies {
-  -webkit-box-ordinal-group: 6;
-  -ms-flex-order: 5;
+.clients-container {
   order: 5;
 }
 
-.contact {
+.policies {
   -webkit-box-ordinal-group: 7;
   -ms-flex-order: 6;
   order: 6;
 }
 
-.enquiry {
+.contact {
   -webkit-box-ordinal-group: 8;
   -ms-flex-order: 7;
   order: 7;
 }
 
-.footer {
+.enquiry {
   -webkit-box-ordinal-group: 9;
   -ms-flex-order: 8;
   order: 8;
+}
+
+.footer {
+  -webkit-box-ordinal-group: 10;
+  -ms-flex-order: 9;
+  order: 9;
 }
 
 body {
@@ -879,7 +883,7 @@ body {
     top: 2rem;
     left: 2rem;
     z-index: 10002; /* Higher than menu background and button */
-    width: 18rem;
+    width: 12rem;
     height: auto;
     transition: transform 0.3s ease, opacity 0.3s ease;
     display: block;

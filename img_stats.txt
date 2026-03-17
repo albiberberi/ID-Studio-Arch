@@ -1,0 +1,9 @@
+BISB.png - r:0-234 g:0-255 b:0-220 a:0-255
+British_Embassy.png - r:255-255 g:255-255 b:255-255 a:0-255
+Continental.png - r:0-255 g:0-255 b:0-255 a:0-255
+HolyTrinityFinalLogo-White.png - r:0-255 g:0-255 b:0-255 a:0-255
+Norwegian_Church.png - r:0-255 g:0-255 b:0-255 a:0-255
+Sluys.png - r:0-79 g:0-189 b:0-134 a:0-255
+St_Anthony.png - r:0-255 g:26-255 b:21-255 a:255-255
+St_Pauls.png - r:71-255 g:112-255 b:76-255 a:0-255
+Vineyard.png - r:0-0 g:0-0 b:0-0 a:0-255

@@ -423,49 +423,47 @@ const galleryTitle = document.getElementById("galleryModalTitle");
 const galleryDescription = document.getElementById("galleryModalDescription");
 const galleryAddress = document.getElementById("galleryModalAddress");
 const galleryType = document.getElementById("galleryModalType");
-const gallerySquads = document.getElementById("galleryModalSquads");
+const galleryYear = document.getElementById("galleryModalYear");
 
 // Project metadata – placeholder data, replace with real values as needed
 const projectMeta = {
-    apartment_ixl: {
-        address: "Ixelles, Brussels",
-        type: "Residential – Renovation",
-        squads: "Architecture, Interior Design"
+    architect_residence: {
+        address: "Vlaanderveldlaan",
+        type: "New construction - Private shared residence",
+        year: "2000-2001"
     },
-    leeuwerik: {
-        address: "Brugge, Belgium",
-        type: "Residential – New Build",
-        squads: "Architecture, Sustainability"
+    cts_housing: {
+        address: "Kasteelstraat 48",
+        type: "Student Housing",
+        year: "2022-2025"
     },
-    wellness: {
-        address: "Uccle, Brussels",
-        type: "Residential – Extension",
-        squads: "Architecture, Landscape"
+    cts_chateau: {
+        address: "Kasteelstraat 48",
+        type: "Overall renovation - Change of function, research centre",
+        year: "2026-"
     },
-    garden: {
-        address: "Waterloo, Belgium",
-        type: "Residential – Garden Pavilion",
-        squads: "Architecture, Furniture Design"
+    watercolor: {
     },
-    terrace: {
-        address: "Molenbeek, Brussels",
-        type: "Residential – Urban Housing",
-        squads: "Architecture, Urban Planning"
+    
+    sluys: {
+        address: "Nijverheidsstraat",
+        type: "New construction - Private offices and storage facilities",
+        year: "2000-2001"
     },
     minimalist: {
         address: "Ixelles, Brussels",
         type: "Interior Design",
-        squads: "Interior Design, Furniture Design"
+        year: "2000-2001"
     },
-    office_concept: {
-        address: "Etterbeek, Brussels",
-        type: "Commercial – Office",
-        squads: "Architecture, Interior Design"
+    architect_residence: {
+        address: "Rue Ducale",
+        type: "Interior Renovation",
+        year: "2020-2023"
     },
     courtyard: {
         address: "Saint-Gilles, Brussels",
         type: "Residential – Renovation",
-        squads: "Architecture, Landscape"
+        year: "2000-2001"
     }
 };
 
@@ -517,11 +515,11 @@ if (galleryModal && galleryItems.length > 0) {
         if (meta) {
             if (galleryAddress) galleryAddress.innerText = meta.address;
             if (galleryType)    galleryType.innerText    = meta.type;
-            if (gallerySquads)  gallerySquads.innerText  = meta.squads;
+            if (galleryYear)    galleryYear.innerText    = meta.year;
         } else {
             if (galleryAddress) galleryAddress.innerText = "—";
             if (galleryType)    galleryType.innerText    = "—";
-            if (gallerySquads)  gallerySquads.innerText  = "—";
+            if (galleryYear)    galleryYear.innerText    = "—";
         }
     }
 

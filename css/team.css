@@ -52,6 +52,7 @@
     .team__grid {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
     }
+    
 }
 
 @media (max-width: 480px) {
@@ -122,10 +123,20 @@
 }
 
 .team__email {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.3rem; /* Reduced font size */
     color: #1e367b;
     margin-bottom: 1rem;
     font-weight: 500;
+    text-decoration: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .team__email {
+        font-size: 0.8em;
+    }
+    
 }
 
 .team__btn {
@@ -160,9 +171,8 @@
     }
 
     .team__card {
-        flex: 0 1 80px; /* Small fixed width for phone centering */
-        border-radius: 5px; /* Smaller Border Radius */
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        flex: 0 1 100px; /* Small fixed width for phone centering */
+        border-radius: 1px; /* Smaller Border Radius */
     }
 
     .team__img-container {
@@ -182,19 +192,22 @@
         margin-bottom: 0.2rem;
     }
 
-    .team__role {
-        font-size: 0.6rem !important;
-        margin-bottom: 0.3rem;
-        display: none; /* Hide less critical info if needed, or keep very small */
-    }
+
+    @media (max-width: 768px) {
+        
+        .team__role 
+        {
+            font-size: 0.8rem !important;
+            margin-bottom: 0.3rem;
+        }
+    
+    
+}
 
     .team__desc {
         display: none !important; /* Hide description to minimize space */
     }
 
-    .team__email {
-        display: none !important; /* Hide email to minimize space */
-    }
 
     .team__btn {
         padding: 0.2rem 0.5rem !important;
