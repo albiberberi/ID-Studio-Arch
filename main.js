@@ -86,32 +86,51 @@ const features3 = document.querySelector('.features__3')
 const aboutTl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
 sections.forEach(section => {
-    gsap.fromTo(section.children, { y: '+=100', opacity: 0 },
-        {
-            y: 0, opacity: 1, stagger: 0.2, duration: 0.8,
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 65%',
-                ease: 'power3. out'
-            }
-        })
-})
+  const els = Array.from(section.children).map(child => {
+    if (child.classList.contains('about__text-container')) {
+      return child.querySelector('.section__wrap') || child;
+    }
+    return child;
+  });
+
+  gsap.fromTo(
+    els,
+    { y: '+=100', opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      stagger: 0.2,
+      duration: 0.8,
+      clearProps: "transform",
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 65%',
+      }
+    }
+  );
+});
 
 const featuresCollection = features ? features.children : [];
 var mediaQuery = window.matchMedia('(min-width: 768px)');
 
 if (mediaQuery && features) {
-    for (let feature of featuresCollection) {
-        gsap.fromTo(feature, { x: '+=100', opacity: 0 },
-            {
-                x: 0, opacity: 1, stagger: 0.2, duration: 0.8,
-                scrollTrigger: {
-                    trigger: feature,
-                    start: 'top 75%',
-                    ease: 'power3. out'
-                }
-            })
-    }
+  for (let feature of featuresCollection) {
+    gsap.fromTo(
+      feature,
+      { x: '+=100', opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 0.8,
+        clearProps: "transform",
+        scrollTrigger: {
+          trigger: feature,
+          start: 'top 75%',
+        }
+      }
+    );
+  }
 }
 
 

@@ -11,6 +11,7 @@
 .team__title {
     text-transform: uppercase;
     position: relative;
+    z-index: 1;
     margin: 2em auto 1.3em auto;
     width: 100%;
     color: #fff;
@@ -24,7 +25,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(214, 223, 255);
+    background-color: rgb(189 208 255);
     width: 100vw;
     height: 30px;
     opacity: 0.8;

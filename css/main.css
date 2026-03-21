@@ -642,7 +642,7 @@ body {
   position: relative;
   z-index: 1;
   min-height: 40vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../img/IMG_1452.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../img/02.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -653,6 +653,7 @@ body {
 .about__info-title {
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
   margin: 2em auto 1.3em auto;
   width: 100%;
   text-align: center;
@@ -661,7 +662,7 @@ body {
 
 .about__info-text {
   font-family: Tahoma, sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   color: #fff;
   max-width: 100rem;
   margin: 0 auto;
@@ -677,7 +678,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(214, 223, 246);
+  background-color: rgb(189 208 255);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1191,7 +1192,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
     opacity: 0;
     transition: opacity 30% ease;
     display: flex;
@@ -1405,6 +1406,7 @@ body {
 .projects__title {
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
   margin: 2em auto 1.3em auto;
   width: 100%;
   color: #fff;
@@ -1417,7 +1419,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(214, 223, 246);;
+  background-color: rgb(189 208 255);;
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1434,9 +1436,10 @@ body {
 .team__title {
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
   margin: 2em auto 1.3em auto;
   width: 100%;
-  color: #1e367b;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -1446,7 +1449,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(214, 223, 246);
+  background-color: rgb(189 208 255);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1502,6 +1505,7 @@ body {
 .contact__title {
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
   margin: 0 auto 1.3em auto;
   width: 100%;
   color: #fff;
@@ -1541,7 +1545,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(214, 223, 246);
+  background-color: rgb(189 208 255);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -1927,6 +1931,7 @@ body {
 .policies__title {
   text-transform: uppercase;
   position: relative;
+  z-index: 1;
   margin: 2em auto 1.3em auto;
   width: 100%;
   color: #fff;
@@ -1939,7 +1944,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(214, 223, 246);
+  background-color: rgb(189 208 255);
   width: 100vw;
   height: 30px;
   opacity: 0.8;
@@ -2155,7 +2160,7 @@ body {
 }
 
 .gallery__project-name {
-  font-size: 1.4rem;
+  font-size: 2.3rem;
   font-weight: 400;
   color: #fff;
   text-transform: none;
