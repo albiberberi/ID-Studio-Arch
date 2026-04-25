@@ -74,7 +74,7 @@ function scrollFunction() {
 
 // ABOUT
 
-const sections = document.querySelectorAll('section')
+const sections = document.querySelectorAll('body > section')
 const features = document.querySelector('.features')
 
 const aboutSection = document.getElementById('about')
@@ -85,53 +85,65 @@ const features3 = document.querySelector('.features__3')
 
 const aboutTl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-sections.forEach(section => {
-  const els = Array.from(section.children).map(child => {
-    if (child.classList.contains('about__text-container')) {
-      return child.querySelector('.section__wrap') || child;
-    }
-    return child;
-  });
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  gsap.fromTo(
-    els,
-    { y: '+=100', opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      stagger: 0.2,
-      duration: 0.8,
-      clearProps: "transform",
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 65%',
+window.addEventListener('load', () => {
+  sections.forEach(section => {
+    const els = Array.from(section.children).map(child => {
+      if (child.classList.contains('about__text-container')) {
+        return child.querySelector('.section__wrap') || child;
       }
-    }
-  );
+      return child;
+    });
+
+    gsap.fromTo(
+      els,
+      { y: isMobile ? 30 : 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: isMobile ? 0.1 : 0.2,
+        duration: isMobile ? 0.6 : 0.8,
+        force3D: true,
+        clearProps: "transform",
+        scrollTrigger: {
+          trigger: section,
+          start: isMobile ? 'top 85%' : 'top 65%',
+          preventOverlaps: true,
+          fastScrollEnd: true
+        }
+      }
+    );
+  });
 });
 
 const featuresCollection = features ? features.children : [];
 var mediaQuery = window.matchMedia('(min-width: 768px)');
 
-if (mediaQuery && features) {
-  for (let feature of featuresCollection) {
-    gsap.fromTo(
-      feature,
-      { x: '+=100', opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 0.8,
-        clearProps: "transform",
-        scrollTrigger: {
-          trigger: feature,
-          start: 'top 75%',
+window.addEventListener('load', () => {
+  if (mediaQuery && features) {
+    for (let feature of featuresCollection) {
+      gsap.fromTo(
+        feature,
+        { x: isMobile ? 30 : 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          force3D: true,
+          clearProps: "transform",
+          scrollTrigger: {
+            trigger: feature,
+            start: 'top 75%',
+            preventOverlaps: true,
+            fastScrollEnd: true
+          }
         }
-      }
-    );
+      );
+    }
   }
-}
+});
 
 
 
@@ -225,6 +237,16 @@ function updateLanguage(lang) {
              el.innerHTML = translations[lang][key];
         }
     });
+    
+    const modalBodyElem = document.getElementById("modalBody");
+    if (modalBodyElem && modalBodyElem.hasAttribute("data-policy-key")) {
+        const contentKey = modalBodyElem.getAttribute("data-policy-key");
+        if (window.translatedPolicyContent && window.translatedPolicyContent[lang]) {
+            modalBodyElem.innerHTML = window.translatedPolicyContent[lang][contentKey];
+        } else if (window.policyContent && window.policyContent[contentKey]) {
+            modalBodyElem.innerHTML = window.policyContent[contentKey];
+        }
+    }
 
     // to save language preference
     localStorage.setItem('preferredLanguage', lang);
@@ -243,6 +265,322 @@ const closeBtn = document.querySelector(".modal__close");
 const policyLinks = document.querySelectorAll('.policies__link');
 
 if (modal && modalBody && closeBtn) {
+    window.translatedPolicyContent = {
+        fr: {
+            privacy: `<h2>Avis de Confidentialité et RGPD - Utilisation de vos informations personnelles</h2>
+            <p>Le Règlement Général sur la Protection des Données (RGPD) s'applique depuis le 25 mai 2018.</p>
+            <p>Dans le cadre du RGPD, nous conservons les informations personnelles (données) par projet, et uniquement pour la durée d'un projet, y compris la période légale de couverture de 10 ans suivant la Réception Provisoire.</p>
+            <p>Nous ne partageons pas ces données avec d'autres personnes extérieures à notre bureau, ni avec d'autres tiers, sauf accord explicite de votre part. Si vous signez une demande de permis d'urbanisme ou tout autre document administratif, votre signature est considérée comme un tel accord explicite.</p>
+    
+            <h3>POUR LES CLIENTS :</h3>
+            <p>Les clients fournissent des données et des informations uniquement dans le cadre d'un projet, et ces données restent dans les dossiers d'archives pour la période décrite ci-dessus.</p>
+            <p>En nous confiant une mission, les clients fournissent explicitement les données nécessaires pour mener à bien cette mission, et ce pour la durée de la mission.</p>
+            <p>Dans ce contexte, les données signifient généralement -</p>
+            <ul>
+                <li>noms</li>
+                <li>adresse postale</li>
+                <li>numéros de téléphone</li>
+                <li>adresses e-mail</li>
+                <li>informations de la carte d'identité
+                    <ul>
+                        <li>numéro de carte d'identité</li>
+                        <li>numéro national belge</li>
+                        <li>Date de naissance</li>
+                        <li>État civil</li>
+                    </ul>
+                </li>
+                <li>Informations financières : telles que
+                    <ul>
+                        <li>coûts du projet</li>
+                        <li>fonds propres</li>
+                        <li>prêts bancaires</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Si vous choisissez de retenir certaines de ces informations, cela peut limiter la portée de ce que nous pouvons accomplir lors d'une mission pour vous.</p>
+            <p>Si vous avez besoin d'informations complémentaires, veuillez nous écrire à<br>
+            Vlaanderveldlaan 20, 1560 Hoeilaart</p>
+    
+            <h3>But :</h3>
+            <ul>
+                <li>Conclusion d'une convention d'architecture</li>
+                <li>Introduction d'une demande de permis d'urbanisme</li>
+                <li>Demande de devis aux entrepreneurs</li>
+                <li>Suivi de chantier</li>
+                <li>Remise des travaux de construction</li>
+                <li>Envoi d'informations du bureau :
+                    <ul>
+                        <li>Cartes de Nouvel An</li>
+                        <li>Événements spéciaux du bureau.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h3>POUR LES ENTREPRENEURS :</h3>
+            <p>Nous conservons les informations suivantes et ne les partagerons pas avec d'autres sauf accord mutuel :</p>
+            <ul>
+                <li>noms</li>
+                <li>adresse postale</li>
+                <li>numéros de téléphone</li>
+                <li>adresses e-mail</li>
+                <li>informations de la carte d'identité
+                    <ul>
+                        <li>numéro de carte d'identité</li>
+                        <li>numéro national belge</li>
+                        <li>Date de naissance</li>
+                        <li>État civil</li>
+                    </ul>
+                </li>
+                <li>Informations financières : telles que
+                    <ul>
+                        <li>Coordonnées bancaires</li>
+                        <li>Vérification ONSS/RSZ et TAXES</li>
+                        <li>numéro de TVA</li>
+                    </ul>
+                </li>
+                <li>Données de l'entreprise.</li>
+            </ul>
+    
+            <h3>POUR LES FOURNISSEURS :</h3>
+            <p>Nous conservons les informations suivantes et ne les partagerons pas avec d'autres sauf accord mutuel :</p>
+            <ul>
+                <li>Données de l'entreprise :
+                    <ul>
+                        <li>noms</li>
+                        <li>adresse postale</li>
+                        <li>numéros de téléphone</li>
+                        <li>adresses e-mail</li>
+                        <li>Coordonnées bancaires</li>
+                        <li>Détails de facturation</li>
+                        <li>numéro de TVA</li>
+                        <li>informations de carte d'identité</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h3>Où, Quoi, Qui & Comment</h3>
+            <h4>Où sont-elles stockées :</h4>
+            <ul>
+                <li>Sur le serveur qui est sauvegardé quotidiennement et stocké au bureau, protégé par une alarme anti-intrusion.
+                    <ul>
+                        <li>Les sauvegardes sont conservées par les partenaires avec leurs ordinateurs portables.</li>
+                    </ul>
+                </li>
+                <li>Sur l'ordinateur portable du partenaire.</li>
+            </ul>
+    
+            <h4>Sous quel format sont-elles stockées :</h4>
+            <ul>
+                <li>Dans un fichier Excel par projet</li>
+                <li>Dans un fichier Excel regroupant tout.</li>
+                <li>Dans un fichier Excel pour les projets avec accords écrits</li>
+                <li>Dans le logiciel du carnet d'adresses Apple par partenaire qui est stocké sur iCloud. (Pour la sécurité iCloud, voir support.apple.com).</li>
+            </ul>
+    
+            <h4>Qui a accès :</h4>
+            <ul>
+                <li>Seuls les partenaires ont accès à l'ensemble des informations.</li>
+                <li>Les membres de l'équipe pour les projets sur lesquels ils travaillent, mais toujours à travers le partenaire.</li>
+            </ul>
+    
+            <h4>Qui vérifie la sécurité :</h4>
+            <ul>
+                <li>Les partenaires.</li>
+            </ul>
+    
+            <h4>Qui informe de toute violation de vie privée :</h4>
+            <ul>
+                <li>Les partenaires.</li>
+            </ul>
+    
+            <h4>Combien de temps sont-elles stockées :</h4>
+            <ul>
+                <li>Pour le client, par projet au moins jusqu'à la fin de la période de responsabilité de 10 ans.</li>
+                <li>Toutes les autres informations : durée indéterminée.</li>
+            </ul>`,
+            csr: `<h2>Responsabilité Sociale des Entreprises</h2>
+            
+            <h3>Programme de diversité</h3>
+            <p>Nous avons une politique proactive pour maintenir une diversité d'expérience, d'origine ethnique, de langue maternelle et de genre. Actuellement 20% de femmes, 4 langues maternelles différentes, 3 nationalités différentes.</p>
+            <p>Nous encourageons spécifiquement chaque membre de l'équipe à se sentir valorisé et à faire partie intégrante de l'équipe, et à disposer d'opportunités adaptées à ses capacités et son expérience.</p>
+    
+            <h3>Politique environnementale</h3>
+            <ul>
+                <li>Actifs dans la conception de constructions basse énergie et passives</li>
+                <li>Respect des objectifs d'économie d'énergie et de la législation dans la construction</li>
+                <li>Personnel encouragé à économiser l'énergie, trier les déchets, repenser la mobilité</li>
+                <li>Vélo pliant disponible au bureau à l'usage du personnel comme moyen de transport alternatif</li>
+                <li>Participation régulière aux séminaires du Sustainable Business Development Task Force de la Chambre de Commerce Britannique de Belgique, ainsi qu'aux séminaires de l'Institut Bruxellois pour l'Environnement et du NAV (Association des architectes flamands)</li>
+            </ul>
+    
+            <h3>Objectifs et cibles environnementaux</h3>
+            <p>Pari des partenaires pour des déplacements en :</p>
+            <ul>
+                <li>a. 50% via un moyen 0% carbone (vélo)</li>
+                <li>b. 70% via un moyen à carburant faible en carbone</li>
+            </ul>
+    
+            <h3>Santé et Sécurité</h3>
+            <p>Tout le personnel est en contact régulier avec les coordinateurs Santé et Sécurité sur les différents chantiers. Les expériences et retours sur les procédures de santé et sécurité sont régulièrement discutés en forum au sein du bureau. Le personnel est également au courant de la réglementation incendie, et nous recevons des mises à jour régulières de l'Officier des Pompiers. Nous élaborons actuellement une politique écrite en matière de santé et de sécurité, liée aux procédures internes générales et à la politique environnementale.</p>`
+        },
+        nl: {
+            privacy: `<h2>Privacyverklaring en AVG - Gebruik van uw persoonlijke informatie</h2>
+            <p>De Algemene Verordening Gegevensbescherming (AVG) is van toepassing vanaf 25 mei 2018.</p>
+            <p>In het kader van de AVG slaan wij persoonlijke informatie (gegevens) op per project, en uitsluitend voor de duur van een project, inclusief de wettelijke dekkingsperiode van 10 jaar volgend op de Voorlopige Oplevering.</p>
+            <p>We delen deze gegevens niet met anderen buiten ons kantoor, of met enige andere derde partij, tenzij u hier uitdrukkelijk mee akkoord bent gegaan. Indien u een bouwaanvraag of een ander administratief document ondertekent, wordt uw handtekening beschouwd als een dergelijke expliciete overeenkomst.</p>
+    
+            <h3>VOOR KLANTEN :</h3>
+            <p>Klanten verstrekken gegevens en informatie enkel binnen het kader van een project, en deze gegevens blijven bewaard in de projectdossiers voor de hierboven beschreven periode.</p>
+            <p>Door het toevertrouwen van een missie aan ons, verstrekken cliënten expliciet de nodige gegevens om die missie uit te voeren, en dat voor de duur van de missie.</p>
+            <p>In deze context zullen gegevens meestal betekenen -</p>
+            <ul>
+                <li>namen</li>
+                <li>postadres</li>
+                <li>telefoonnummers</li>
+                <li>e-mailadressen</li>
+                <li>identiteitskaartgegevens
+                    <ul>
+                        <li>ID-kaartnummer</li>
+                        <li>Belgisch rijksregisternummer</li>
+                        <li>Geboortedatum</li>
+                        <li>Burgerlijke staat</li>
+                    </ul>
+                </li>
+                <li>Financiële informatie : zoals
+                    <ul>
+                        <li>projectkosten</li>
+                        <li>eigen vermogen</li>
+                        <li>bankleningen</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Als u ervoor kiest om bepaalde van deze informatie achter te houden, kan dit de draagwijdte beperken van wat we in een missie voor u kunnen bereiken.</p>
+            <p>Indien u meer informatie wenst, gelieve ons te schrijven op<br>
+            Vlaanderveldlaan 20, 1560 Hoeilaart</p>
+    
+            <h3>Doel :</h3>
+            <ul>
+                <li>Opmaken architectuurovereenkomst</li>
+                <li>Indienen van een bouwaanvraag</li>
+                <li>Aanvragen van offertes bij aannemers</li>
+                <li>Opvolgen van de werf</li>
+                <li>Oplevering van de bouwwerken</li>
+                <li>Zenden van kantoorinformatie :
+                    <ul>
+                        <li>Nieuwjaarskaarten</li>
+                        <li>Speciale evenementen van het kantoor.</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h3>VOOR AANNEMERS :</h3>
+            <p>We bewaren de volgende informatie en zullen deze niet met anderen delen tenzij onderling overeengekomen :</p>
+            <ul>
+                <li>namen</li>
+                <li>postadres</li>
+                <li>telefoonnummers</li>
+                <li>e-mailadressen</li>
+                <li>identiteitskaartgegevens
+                    <ul>
+                        <li>ID-kaartnummer</li>
+                        <li>Belgisch rijksregisternummer</li>
+                        <li>Geboortedatum</li>
+                        <li>Burgerlijke staat</li>
+                    </ul>
+                </li>
+                <li>Financiële informatie : zoals
+                    <ul>
+                        <li>Bankrekeninggegevens</li>
+                        <li>Controle RSZ en BELASTINGEN</li>
+                        <li>Btw-nummer</li>
+                    </ul>
+                </li>
+                <li>Bedrijfsgegevens.</li>
+            </ul>
+    
+            <h3>VOOR LEVERANCIERS :</h3>
+            <p>We bewaren de volgende informatie en zullen deze niet met anderen delen tenzij onderling overeengekomen :</p>
+            <ul>
+                <li>Bedrijfsgegevens :
+                    <ul>
+                        <li>namen</li>
+                        <li>postadres</li>
+                        <li>telefoonnummers</li>
+                        <li>e-mailadressen</li>
+                        <li>Bankrekeninggegevens</li>
+                        <li>Facturatiegegevens</li>
+                        <li>Btw-nummer</li>
+                        <li>identiteitskaartgegevens</li>
+                    </ul>
+                </li>
+            </ul>
+    
+            <h3>Waar, Wat, Wie & Hoe</h3>
+            <h4>Waar het opgeslagen wordt :</h4>
+            <ul>
+                <li>Op de server die dagelijks wordt geback-upt en bewaard wordt op kantoor, beveiligd door een alarmsysteem.
+                    <ul>
+                        <li>Back-ups worden door de partners bewaard samen met hun laptops.</li>
+                    </ul>
+                </li>
+                <li>Op de laptop van de partner.</li>
+            </ul>
+    
+            <h4>In welk formaat het opgeslagen wordt :</h4>
+            <ul>
+                <li>In Excel-bestand per project</li>
+                <li>In Excel-bestand allemaal samen.</li>
+                <li>In Excel-bestand voor projecten met schriftelijke overeenkomsten</li>
+                <li>In Apple adresboek software per partner, dewelke is opgeslagen in iCloud. (Voor iCloud Veiligheid zie support.apple.com).</li>
+            </ul>
+    
+            <h4>Wie toegang heeft :</h4>
+            <ul>
+                <li>Enkel de partners hebben toegang tot alle informatie.</li>
+                <li>De teamleden voor de projecten waaraan ze werken, maar altijd via de partner.</li>
+            </ul>
+    
+            <h4>Wie de veiligheid controleert :</h4>
+            <ul>
+                <li>De partners.</li>
+            </ul>
+    
+            <h4>Wie informeert over een privacyschending :</h4>
+            <ul>
+                <li>De partners.</li>
+            </ul>
+    
+            <h4>Hoe lang het opgeslagen wordt :</h4>
+            <ul>
+                <li>Voor de klant, per project minstens tot het einde van de 10-jarige aansprakelijkheidsperiode.</li>
+                <li>Alle andere informatie : voor onbepaalde tijd.</li>
+            </ul>`,
+            csr: `<h2>Maatschappelijk Verantwoord Ondernemen</h2>
+            
+            <h3>Diversiteitsprogramma</h3>
+            <p>We hebben een proactief beleid om een diversiteit aan ervaring, etnische achtergrond, moedertaal en geslacht te behouden. Momenteel 20% vrouwen, 4 verschillende moedertalen, 3 nationaliteiten.</p>
+            <p>Daarnaast moedigen we elk teamlid aan om zich gewaardeerd teamlid te voelen en de mogelijkheden te krijgen die aansluiten op hun vaardigheden en ervaring.</p>
+    
+            <h3>Milieubeleid</h3>
+            <ul>
+                <li>Actief in lage-energie- en passiefbouwontwerp</li>
+                <li>Respect voor de doelstellingen rond energie-efficiëntie en regelgeving in de bouwsector</li>
+                <li>Personeel aangemoedigd om energie te besparen, afval te sorteren en over mobiliteit na te denken</li>
+                <li>Plooifiets is beschikbaar op kantoor voor personeel als alternatief transport</li>
+                <li>Regelmatige deelname aan seminaries van Leefmilieu Brussel en NAV (vlaamse architectenorganisatie). Deelname tevens aan the British Chamber of Commerce in Belgium - Sustainable Business Development Task Force Seminars.</li>
+            </ul>
+    
+            <h3>Milieudoelstellingen</h3>
+            <p>Doelstellingen voor transport van partners:</p>
+            <ul>
+                <li>a. reizen: 50% via vervoersmiddelen met 0% koolstofuitstoot (fiets)</li>
+                <li>b. reizen: 70% per vervoersmiddel op basis van een brandstofarme koolstof.</li>
+            </ul>
+    
+            <h3>Gezondheid en Veiligheid</h3>
+            <p>Al het personeel staat in direct overleg met Veiligheids- en Gezondheidscoördinatoren op alle verschillende werven. Alle terugkoppeling aangaande procedures worden regelmatig en in open vergadering gesproken ten burele. Personeel is teambreed geïnformeerd in zaken rond Brandregelgevingen waarbij het update info mag ervaren vanwege een brandweerofficier. Verder brengen we een schriftelijk G&V beleid samen in het teken van algemene interne procedures ter bevordering van het milieubeleid.</p>`
+        }
+    };
     const policyContent = {
         privacy: `
             <h2>Privacy Notice and GDPR - Using your personal information</h2>
@@ -405,13 +743,24 @@ if (modal && modalBody && closeBtn) {
         `
     };
     
+    window.policyContent = policyContent;
+    
     policyLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const i18nKey = link.getAttribute('data-i18n');
             if (i18nKey === 'policy_privacy' || i18nKey === 'policy_csr') {
                 e.preventDefault();
                 const contentKey = i18nKey === 'policy_privacy' ? 'privacy' : 'csr';
-                modalBody.innerHTML = policyContent[contentKey];
+                const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+                
+                modalBody.setAttribute('data-policy-key', contentKey);
+                
+                if (currentLang === 'en' || !window.translatedPolicyContent[currentLang]) {
+                    modalBody.innerHTML = policyContent[contentKey];
+                } else {
+                    modalBody.innerHTML = window.translatedPolicyContent[currentLang][contentKey];
+                }
+                
                 modal.style.display = "block";
                 document.body.style.overflow = "hidden";
             }
@@ -446,7 +795,7 @@ const galleryYear = document.getElementById("galleryModalYear");
 
 // Project metadata – placeholder data, replace with real values as needed
 const projectMeta = {
-    architect_residence: {
+    ambassador_residence: {
         address: "Vlaanderveldlaan",
         type: "New construction - Private shared residence",
         year: "2000-2001"

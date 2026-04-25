@@ -251,6 +251,7 @@ body {
     }
 
     &__logo {
+        display: none;
         height: 5rem;
         margin: 2rem;
         border: 1px #fff dashed;
@@ -264,6 +265,7 @@ body {
         }
 
         @include mq(medium) {
+            display: block;
             border-radius: 0 0 0 8rem;
             grid-column-start: 2;
             right: 2rem;

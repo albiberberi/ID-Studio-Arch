@@ -59,7 +59,11 @@ const translations = {
         project_terrace: "Terrace Housing",
         project_minimalist: "Minimalist Interior",
         project_office_concept: "Office Concept",
-        project_courtyard: "Courtyard Renovation"
+        project_courtyard: "Courtyard Renovation",
+        project_sluys: "Sluys International",
+        project_cts_chateau: "CTS Renovation of a Chateau",
+        project_watercolor: "Watercolors",
+        expertise_title: "Expertise"
     },
     fr: {
         nav_home: "accueil",
@@ -121,7 +125,11 @@ const translations = {
         project_terrace: "Terrace Housing",
         project_minimalist: "Minimalist Interior",
         project_office_concept: "Office Concept",
-        project_courtyard: "Courtyard Renovation"
+        project_courtyard: "Courtyard Renovation",
+        project_sluys: "Sluys International",
+        project_cts_chateau: "CTS Rénovation d'un Château",
+        project_watercolor: "Aquarelles",
+        expertise_title: "Expertise"
     },
     nl: {
         nav_home: "home",
@@ -183,6 +191,10 @@ const translations = {
         project_terrace: "Terrace Housing",
         project_minimalist: "Minimalist Interior",
         project_office_concept: "Office Concept",
-        project_courtyard: "Courtyard Renovation"
+        project_courtyard: "Courtyard Renovation",
+        project_sluys: "Sluys International",
+        project_cts_chateau: "CTS Renovatie van een Kasteel",
+        project_watercolor: "Aquarellen",
+        expertise_title: "Expertise"
     },
 };

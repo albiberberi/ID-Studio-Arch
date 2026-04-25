@@ -17,8 +17,16 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: scroll;
         padding: 10rem 0;
+
+        @include mq(xlarge) {
+            background-attachment: fixed;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            background-attachment: scroll;
+        }
     }
 
     &__info {
