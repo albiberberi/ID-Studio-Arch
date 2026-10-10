@@ -796,26 +796,69 @@ const galleryYear = document.getElementById("galleryModalYear");
 // Project metadata – placeholder data, replace with real values as needed
 const projectMeta = {
     ambassador_residence: {
-        address: "Vlaanderveldlaan",
-        type: "New construction - Private shared residence",
+        address: "RUE DUCALE",
+        type: "NEW CONSTRUCTION - PRIVATE SHARED RESIDENCE",
         year: "2000-2001"
     },
     cts_housing: {
-        address: "Kasteelstraat 48",
-        type: "Student Housing",
-        year: "2022-2025"
+        address: "KASTEELSTRAAT, SINT-PIETERS-LEEUW 1600",
+        type: "NEW BUILDING - SHARED RESIDENCE",
+        year: "2024"
     },
     cts_chateau: {
-        address: "Kasteelstraat 48",
-        type: "Overall renovation - Change of function, research centre",
-        year: "2026-"
+        address: "KASTEELSTRAAT, SINT-PIETERS-LEEUW 1600",
+        type: "RENOVATION - CHATEAU CONVERSION TO A RESEARCH CENTRE",
+        year: "2026 - ONGOING"
     },
+
+    dekerk_residence: {
+        address: "KAPUCIENENSTRAAT, 21, 3080 TERVUREN",
+        type: "NEW BUILDING - PRIVATE RESIDENCE",
+        year: "2006-2007"
+    },
+
+    dieryck_lilliwhite: {
+        address: "BERGSTRAAT 24, 1560 HOEILAART",
+        type: "NEW BUILDING - PRIVATE RESIDENCE",
+        year: "2011-2012"
+    },
+
+    hoeksteen:{
+        address: "ZOTTEGEM",
+        type: "NEW BUILDING - PRIVATE RESIDENCE",
+        year: "2009"
+    },
+
+    kampala_children_centre: {
+        address: "KAMPALA, UGANDA",
+        type: "NEW BUILDING - SCHOOL FACILITIES",
+        year: "2007"
+    },
+
+    verborgt: {
+        address: "TERVUURSESTEENWEG 3078 EVERBERG",
+        type: "NEW BUILDING - PRIVATE RESIDENCE",
+        year: "2004"
+    },
+
+    puri: {
+        address: "TERHEIDESRAAT 1a, 1560 HOEILAART",
+        type: "NEW BUILDING - PRIVATE RESIDENCE",
+        year: "2005"
+    },
+
+    gronroos: {
+        address: "SAIKKALA",
+        type: "NEW BUILDING - MIXED USE",
+        year: "2006"
+    },
+
     watercolor: {
     },
     
     sluys: {
-        address: "Nijverheidsstraat",
-        type: "New construction - Private offices and storage facilities",
+        address: "NIJVERHEIDSSTRAAT",
+        type: "NEW CONSTRUCTION - PRIVATE OFFICES AND STORAGE FACILITIES",
         year: "2000-2001"
     },
     minimalist: {
@@ -824,9 +867,9 @@ const projectMeta = {
         year: "2000-2001"
     },
     architect_residence: {
-        address: "Rue Ducale",
-        type: "Interior Renovation",
-        year: "2020-2023"
+        address: "Vlaanderveldlaan, HOEILAART 1560",
+        type: "NEW BUILDING - SHARED RESIDENCE",
+        year: "2003"
     },
     courtyard: {
         address: "Saint-Gilles, Brussels",

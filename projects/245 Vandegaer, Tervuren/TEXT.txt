@@ -1,0 +1,6 @@
+NAME: Van de Gaer - Dekerk residence
+ADDRESS: Kapucienenstraat, 21, 3080 Tervuren
+TYPE: NEW BUILDING - PRIVATE RESIDENCE
+YEAR: 2006-7
+
+CAT. RESIDENTIAL

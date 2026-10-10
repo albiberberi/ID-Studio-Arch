@@ -1,0 +1,6 @@
+NAME: Dieryck-Lilliwhite residence
+ADDRESS: Bergstraat 24 -1560 Hoeilaart
+TYPE: NEW BUILDING - PRIVATE RESIDENCE
+YEAR: 2011-12
+
+CATEGORY / RESIDENTIAL

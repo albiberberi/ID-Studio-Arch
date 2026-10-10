@@ -1,0 +1,6 @@
+NAME: Verborgt - Dandelot residence
+ADDRESS: Tervuursesteenweg, 3078 Everberg
+TYPE: NEW BUILDING - PRIVATE RESIDENCE
+YEAR: 2004
+
+CAT. residential

@@ -1,0 +1,6 @@
+NAME: PURI-SPELTINCX Residence
+ADDRESS: Terheidestraat, 1a 1560 Hoeilaart
+TYPE: NEW BUILDING - PRIVATE RESIDENCE
+YEAR: 2005
+
+category - residential

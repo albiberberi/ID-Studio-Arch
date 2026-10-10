@@ -62,6 +62,8 @@ const translations = {
         project_courtyard: "Courtyard Renovation",
         project_sluys: "Sluys International",
         project_cts_chateau: "CTS Renovation of a Chateau",
+        project_dekerk_residence: "Dekerk residence",
+        project_dieryck_lilliwhite: "Dieryck-Lilliwhite residence",
         project_watercolor: "Watercolors",
         expertise_title: "Expertise"
     },
@@ -128,6 +130,8 @@ const translations = {
         project_courtyard: "Courtyard Renovation",
         project_sluys: "Sluys International",
         project_cts_chateau: "CTS Rénovation d'un Château",
+        project_dekerk_residence: "Résidence Dekerk",
+        project_dieryck_lilliwhite: "Résidence Dieryck-Lilliwhite",
         project_watercolor: "Aquarelles",
         expertise_title: "Expertise"
     },
@@ -194,6 +198,8 @@ const translations = {
         project_courtyard: "Courtyard Renovation",
         project_sluys: "Sluys International",
         project_cts_chateau: "CTS Renovatie van een Kasteel",
+        project_dekerk_residence: "Dekerk residence",
+        project_dieryck_lilliwhite: "Dieryck-Lilliwhite residence",
         project_watercolor: "Aquarellen",
         expertise_title: "Expertise"
     },
