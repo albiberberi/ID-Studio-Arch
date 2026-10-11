@@ -70,8 +70,8 @@
 
 .gallery-modal__img {
   width: 100%;
-  max-width: 780px;
-  max-height: 520px;
+  max-width: 800px;
+  max-height: 800px;
   object-fit: cover;
   display: none;
   animation: gmFadeIn 0.35s ease-out;

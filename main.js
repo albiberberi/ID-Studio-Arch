@@ -797,7 +797,7 @@ const galleryYear = document.getElementById("galleryModalYear");
 const projectMeta = {
     ambassador_residence: {
         address: "RUE DUCALE",
-        type: "NEW CONSTRUCTION - PRIVATE SHARED RESIDENCE",
+        type: "RENOVATION - PRIVATE SHARED RESIDENCE",
         year: "2000-2001"
     },
     cts_housing: {
