@@ -277,7 +277,7 @@ body {
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("../img/IMG_1452.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("../img/IMG_header.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
